@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000"
+    tools:context=".Tableview">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Aryan Restaurant"
+        android:textColor="#FFF"
+        android:textSize="35dp"
+        android:textStyle="bold" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Table"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:id="@+id/title2"
+        android:textColor="#FFF"
+        android:layout_below="@id/title"
+        android:layout_marginTop="20dp"
+        android:gravity="center" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/title2"
+        android:layout_above="@id/bck"
+        >
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title2"
+        android:id="@+id/mytable"
+        android:layout_margin="10dp"
+        >
+    </TableLayout>
+    </ScrollView>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/transparent"
+        android:text="Back"
+        android:id="@+id/bck"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        android:textColor="#FFF"
+        />
+
+
+
+
+</RelativeLayout>

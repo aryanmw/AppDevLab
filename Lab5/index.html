@@ -1,0 +1,56 @@
+<html>
+<head>
+    <script language="javascript">
+        function loadXMLDoc() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    Display(this);
+                }
+            };
+            xmlhttp.open("GET", "UserInfo.xml", true);
+            xmlhttp.send();
+        }
+        function Display(xml) {
+            var flag = 0;
+            var userid = document.myform.uname.value;
+            var xmlDoc = xml.responseXML;
+            console.log(xmlDoc);
+            var arr = xmlDoc.getElementsByTagName("PersonDetails");
+            [...arr].forEach((node)=>{
+                console.log(node);
+                var uid = node.childNodes[1].innerHTML;
+                if (uid == userid) {
+                    document.write("<h1> User Details</h1>");
+                    var name = node.childNodes[3].innerHTML;
+                    var city = node.childNodes[5].innerHTML;
+                    var branch = node.childNodes[7].innerHTML;
+                    var year = node.childNodes[9].innerHTML;
+                    document.write("<hr><br>User ID : " + uid)
+                    document.write("<br>Name : " + name);
+                    document.write("<br>City : " + city);
+                    document.write("<br>Branch : " + branch);
+                    document.write("<br>Year : " + year);
+                    flag = 1;
+                    return;
+                }
+            });
+            if (flag == 0) {
+                alert("Invalid User");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <center>
+        <h1>User Information</h1>
+        <form name="myform">
+            User ID : 
+            <input type="text" name="uname">
+            <input type="button" name="btn" value="Submit" onclick="loadXMLDoc()">
+        </form>
+    </center>
+</body>
+
+</html>
